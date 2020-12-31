@@ -1,0 +1,3 @@
+variable "rsgname" {
+  default = ""
+}
