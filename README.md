@@ -35,12 +35,12 @@ Project Structure
 Variables
 ----------
 ```python
-`name` type = str This basically defines the environment name.
-`location` type = str This basically defines the location name.
-`rsgname` type = str This basically defines the resource group name.
-`public_subnet_cidr`   type = list This basically defines the Public subnet cidr ranges.
-`private_subnet_cidr`   type = list This basically defines the Private subnet cidr ranges.
-`address_space`  type = list This basically defines the address space ranges.
+name type = str This basically defines the environment name.
+location type = str This basically defines the location name.
+rsgname type = str This basically defines the resource group name.
+public_subnet_cidr   type = list This basically defines the Public subnet cidr ranges.
+private_subnet_cidr   type = list This basically defines the Private subnet cidr ranges.
+address_space  type = list This basically defines the address space ranges.
 ```
 
 
@@ -82,14 +82,11 @@ terraform apply  -var-file=env/dev/variables.tfvars -auto-approve
 ```
 
 6. Output should be something like this.
-## Output
 
-<details><summary>CLICK ME</summary>
-<p>
+Output
+--------------
 
-#### It's hidden code blocks! (Kya karoge janke ???)
-
-```
+```python
 ubuntu@tech-fiber-jenkins-prod-02:~/13/tf-code$ terraform-13 apply  -var-file="env/dev/variables.tfvars"
 module.resource-group.data.azurerm_resource_group.resource-group: Refreshing state...
 
@@ -501,11 +498,6 @@ module.vnet.azurerm_subnet_nat_gateway_association.nat-subnet-assoc[2]: Creation
 
 Apply complete! Resources: 22 added, 0 changed, 0 destroyed.
 ```
-
-</p>
-</details>
-
-
 Author
 ------
 Ravi P Srivastav
