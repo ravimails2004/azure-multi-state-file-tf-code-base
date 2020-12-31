@@ -81,8 +81,6 @@ terraform plan -var-file="env/dev/variables.tfvars"
 terraform apply  -var-file=env/dev/variables.tfvars -auto-approve
 ```
 
-6. Output should be something like this.
-
 Output
 --------------
 
