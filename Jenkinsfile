@@ -29,6 +29,19 @@ pipeline {
                     sh './execute-tf.sh Tf_Plan'
                  }
                  }
+                stage('Approval Phase1') {
+                   input {
+                       message "Should we continue?"
+                       ok "Yes, we should."
+                       submitter "admin,ravi"
+                       parameter {
+                         string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
+                }
+                steps {
+                    echo "Hello, ${PERSON}, nice to meet you."
+                 }
+                 }
+
 }
 }
 
