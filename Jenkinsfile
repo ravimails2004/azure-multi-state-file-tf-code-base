@@ -12,7 +12,8 @@ pipeline {
                  stage('SetupDirStructure') {
                  steps {
                      echo 'Setting up Directory Structure'
-  	             bash "execute-tf.sh SetupDirStructure"
+  	             sh 'chmod +x execute-tf.sh'
+                     sh './execute-tf.sh SetupDirStructure'
                  }
                  }
                  stage('yesorno') {
