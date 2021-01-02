@@ -12,7 +12,7 @@ pipeline {
                  stage('SetupDirStructure') {
                  steps {
                      echo 'Setting up Directory Structure'
-  	             sh ". ./execute-tf.sh; SetupDirStructure"
+  	             bash "execute-tf.sh SetupDirStructure"
                  }
                  }
                  stage('yesorno') {
