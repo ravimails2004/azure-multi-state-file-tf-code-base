@@ -17,7 +17,7 @@ function Tf_Init() {
 
 
 function Tf_Plan() {
-      ${TF_13_CMD} plan -var-file="env/${ENV}/variables.tfvars"
+      cd ${JOB_NAME} && ${TF_13_CMD} plan -var-file="env/${ENV}/variables.tfvars"
 
 }
 
