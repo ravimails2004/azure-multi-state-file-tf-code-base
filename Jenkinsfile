@@ -39,6 +39,7 @@ pipeline {
                 }
                 steps {
                     echo "Hello, ${PERSON}, nice to meet you."
+                    echo "Looks good"
                  }
                  }
 
