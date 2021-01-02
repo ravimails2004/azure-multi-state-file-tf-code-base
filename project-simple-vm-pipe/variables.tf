@@ -1,5 +1,5 @@
-variable "name" {
-   default = "dev-RSG-ravi"
+variable "rsgname" {
+   default = ""
 
 }
 

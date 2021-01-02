@@ -1,7 +1,7 @@
 module "resource-group" {
   source = "./src/terraform/modules/resource-group"
   target_group_addition = var.target_group_addition
-  name  =  var.name
+  rsgname  =  var.rsgname
   location = var.location
   appname  = var.appname
   env      = var.env
@@ -13,7 +13,7 @@ module "resource-group" {
 module "vm" {
  source = "./src/terraform/modules/vm"
  depends_on = [module.resource-group]
- resource_group = var.name
+ resource_group = var.rsgname
  vm_name = var.vm_name
  publicip = var.publicip
  vmsize = var.vmsize
