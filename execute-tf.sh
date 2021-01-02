@@ -21,6 +21,11 @@ function Tf_Plan() {
 
 }
 
+function Tf_Apply() {
+    cd ${JOB_NAME} && ${TF_13_CMD} apply -var-file="env/${ENV}/variables.tfvars" -auto-approve
+
+}
+
 "$@"
 
 #SetupDirStructure

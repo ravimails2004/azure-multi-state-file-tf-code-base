@@ -30,16 +30,14 @@ pipeline {
                  }
                  }
                 stage('Approval Phase1') {
-                   input {
-                       message "Should we continue?"
-                       ok "Yes, we should."
-                       submitter "admin,ravi"
-                       parameters {
-                         string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
-                }
-                steps {
-                    echo "Hello, ${PERSON}, nice to meet you."
-                    echo "Looks good"
+                   steps {
+                   input ('Do you want to proceed?')
+                 }
+                 }
+                stage('Displaying tf-13 apply auto-approve') {
+                 steps {
+                    echo 'Displaying the tf-13 apply'
+                    sh './execute-tf.sh Tf_Apply'
                  }
                  }
 
