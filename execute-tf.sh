@@ -6,8 +6,8 @@ STRUCT="src/terraform"
 SOURCE_LN="modules"
 
 function SetupDirStructure() {
-         ${MD} -p ${STRUCT} 
-         ${LINK} -s ${SOURCE_LN} "${STRUCT}/modules" 
+         ${MD} -p "${JOB_NAME}/${STRUCT}" 
+         ${LINK} -s ${SOURCE_LN} "${JOB_NAME}/${STRUCT}/modules" 
 }
 
 function Tf_Init() {
