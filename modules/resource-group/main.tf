@@ -6,7 +6,6 @@ locals {
   )}"
 }
 
-
 resource "azurerm_resource_group" "RSG" {
         count = var.target_group_addition ? 1 : 0
         name = var.rsgname

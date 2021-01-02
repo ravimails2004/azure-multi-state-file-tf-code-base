@@ -8,7 +8,7 @@ variable "location" {
 }
 
 variable "rsgname" {
-
+   default = ""
 }
 
 variable "public_subnet_cidr" {
@@ -26,4 +26,12 @@ variable "address_space" {
   default = []
 
 
+}
+variable "target_group_addition" {
+   default = ""
+}
+
+variable "vnet-name" {
+  default = ""
+   
 }
