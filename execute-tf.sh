@@ -21,7 +21,9 @@ function Tf_Plan() {
 
 }
 
-SetupDirStructure
-Tf_Init
-pwd
-Tf_Plan
+"$@"
+
+#SetupDirStructure
+#Tf_Init
+#pwd
+#Tf_Plan
