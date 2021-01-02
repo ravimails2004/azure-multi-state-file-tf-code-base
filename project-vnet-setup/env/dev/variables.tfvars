@@ -1,6 +1,0 @@
-rsgname = "dev-RSG"
-name = "dev"
-location = "Central India"
-address_space = ["192.168.0.0/16"]
-private_subnet_cidr = ["192.168.32.0/19", "192.168.64.0/19","192.168.96.0/19"]
-public_subnet_cidr = ["192.168.0.0/19"]
