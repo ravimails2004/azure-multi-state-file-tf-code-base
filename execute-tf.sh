@@ -17,10 +17,11 @@ function Tf_Init() {
 
 
 function Tf_Plan() {
-      cd ${JOB_NAME} && ${TF_13_CMD} plan -var-file="env/${ENV}/variables.tfvars"
+     ${TF_13_CMD} plan -var-file="env/${ENV}/variables.tfvars"
 
 }
 
 SetupDirStructure
 Tf_Init
+pwd
 Tf_Plan
