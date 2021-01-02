@@ -16,15 +16,17 @@ pipeline {
                      sh './execute-tf.sh SetupDirStructure'
                  }
                  }
-                 stage('yesorno') {
+                 stage('Initialize tf-13') {
                  steps {
-                    input('Do you want to proceed?')
+                    echo 'initializing tf 13'
+                    sh './execute-tf.sh Tf_Init'
                  }
                  }
                  
-                 stage('proceed') {
+                 stage('Displaying tf-13 plan') {
                  steps {
-                    echo('yes')
+                    echo 'Displaying the tf-13 planning'
+                    sh './execute-tf.sh Tf_Plan'
                  }
                  }
 }
