@@ -14,6 +14,8 @@ function SetupDirStructurevnet() {
 function SetupDirStructuresimple() {
          ${MD} -p "${WORKSPACE}/${JOB_NAME}/${STRUCT}"
          ${LINK} -s "${WORKSPACE}/modules"  "${WORKSPACE}/${JOB_NAME}/${STRUCT}/modules"
+	 ${LINK} -s "${WORKSPACE}/projectvnetdatalookup/${ENV}/sdlc-common.tf"   "${WORKSPACE}/${JOB_NAME}/sdlc-common.tf"
+	 ${LINK} -s "${WORKSPACE}/${JOB_NAME}/${ENV}/project-backend.tf"         "${WORKSPACE}/${JOB_NAME}/project-backend.tf"
 }
 
 
