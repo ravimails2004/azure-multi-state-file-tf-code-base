@@ -9,7 +9,7 @@ pipeline {
         }
 
          stages {
-                 stage('SetupDirStructure') {
+                 stage('SetupDirStructureVnet') {
                  when{
                     project_type 'vnet'
                  steps {
@@ -18,6 +18,7 @@ pipeline {
                    //  #sh './execute-tf.sh SetupDirStructure'
                  }
                  }
+                 stage('SetupDirStructureSimple') {
                  when{
                     project_type 'project'
                  steps {
