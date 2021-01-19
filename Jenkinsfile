@@ -14,16 +14,16 @@ pipeline {
                     project_type 'vnet'
                  steps {
                      echo 'Setting up Directory Structure for vnet'
-  	             #sh 'chmod +x execute-tf.sh'
-                     #sh './execute-tf.sh SetupDirStructure'
+  	            // #sh 'chmod +x execute-tf.sh'
+                   //  #sh './execute-tf.sh SetupDirStructure'
                  }
                  }
                  when{
                     project_type 'project'
                  steps {
                      echo 'Setting up Directory Structure for project'
-                     #sh 'chmod +x execute-tf.sh'
-                     #sh './execute-tf.sh SetupDirStructure'
+                    // #sh 'chmod +x execute-tf.sh'
+                    // #sh './execute-tf.sh SetupDirStructure'
                  }
                  }
 
@@ -32,14 +32,14 @@ pipeline {
                  stage('Initialize tf-13') {
                  steps {
                     echo 'initializing tf 13'
-                    #sh './execute-tf.sh Tf_Init'
+                   // #sh './execute-tf.sh Tf_Init'
                  }
                  }
                  
                  stage('Displaying tf-13 plan') {
                  steps {
                     echo 'Displaying the tf-13 planning'
-                    #sh './execute-tf.sh Tf_Plan'
+                    // #sh './execute-tf.sh Tf_Plan'
                  }
                  }
                 stage('Approval Phase1') {
@@ -50,7 +50,7 @@ pipeline {
                 stage('Displaying tf-13 apply auto-approve') {
                  steps {
                     echo 'Displaying the tf-13 apply'
-                    #sh './execute-tf.sh Tf_Apply'
+                   // #sh './execute-tf.sh Tf_Apply'
                  }
                  }
 
