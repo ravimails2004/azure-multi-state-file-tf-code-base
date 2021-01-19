@@ -8,6 +8,7 @@ SOURCE_LN="modules"
 function SetupDirStructure() {
          ${MD} -p "${WORKSPACE}/${JOB_NAME}/${STRUCT}" 
          ${LINK} -s "${WORKSPACE}/modules"  "${WORKSPACE}/${JOB_NAME}/${STRUCT}/modules" 
+	 ${LINK} -s "${WORKSPACE}/vnetstatefiles/${ENV}/backend.tf" "${WORKSPACE}/${JOB_NAME}/backend.tf"
 }
 
 function Tf_Init() {
