@@ -9,6 +9,7 @@ function SetupDirStructurevnet() {
          ${MD} -p "${WORKSPACE}/${JOB_NAME}/${STRUCT}" 
          ${LINK} -s "${WORKSPACE}/modules"  "${WORKSPACE}/${JOB_NAME}/${STRUCT}/modules" 
 	 ${LINK} -s "${WORKSPACE}/vnetstatefiles/${ENV}/backend.tf" "${WORKSPACE}/${JOB_NAME}/backend.tf"
+	 export ARM_ACCESS_KEY=ARM_ACCESS_KEY_{ENV}
 }
 
 function SetupDirStructuresimple() {
@@ -16,6 +17,7 @@ function SetupDirStructuresimple() {
          ${LINK} -s "${WORKSPACE}/modules"  "${WORKSPACE}/${JOB_NAME}/${STRUCT}/modules"
 	 ${LINK} -s "${WORKSPACE}/projectvnetdatalookup/${ENV}/sdlc-common.tf"   "${WORKSPACE}/${JOB_NAME}/sdlc-common.tf"
 	 ${LINK} -s "${WORKSPACE}/${JOB_NAME}/env/${ENV}/project-backend.tf"         "${WORKSPACE}/${JOB_NAME}/project-backend.tf"
+	 export ARM_ACCESS_KEY=ARM_ACCESS_KEY_{ENV}
 }
 
 
