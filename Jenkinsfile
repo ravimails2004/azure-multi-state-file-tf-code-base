@@ -9,27 +9,19 @@ pipeline {
         }
 
          stages {
-                 stage('SetupDirStructureVnet') {
-                 when{
-                    project_type 'vnet'
+                 stage('SetupDirStructure') {
                  steps {
-                     echo 'Setting up Directory Structure for vnet'
-  	            // #sh 'chmod +x execute-tf.sh'
-                   //  #sh './execute-tf.sh SetupDirStructure'
-                 }
-                 }
-                 stage('SetupDirStructureSimple') {
-                 when{
-                    project_type 'project'
-                 steps {
-                     echo 'Setting up Directory Structure for project'
-                    // #sh 'chmod +x execute-tf.sh'
-                    // #sh './execute-tf.sh SetupDirStructure'
-                 }
-                 }
-
-    
-                 }
+                   script {
+                  if ( ${project_type} == 'vnet' ) {
+                     echo "Executing according to vnet"
+                    }
+                  else {
+                     echo "Executing according to simple project"
+                                             
+                    }
+                  }
+                }
+              }
                  stage('Initialize tf-13') {
                  steps {
                     echo 'initializing tf 13'
