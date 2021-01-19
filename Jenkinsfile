@@ -12,7 +12,7 @@ pipeline {
                  stage('SetupDirStructure') {
                  steps {
                    script {
-                  if ( ${project_type} == 'vnet' ) {
+                  if ( env.project_type == 'vnet' ) {
                      echo "Executing according to vnet"
                     }
                   else {
