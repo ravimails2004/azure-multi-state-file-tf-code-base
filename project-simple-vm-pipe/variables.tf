@@ -84,3 +84,20 @@ variable "subnet_name" {
 variable "subnet_resource_group" {
   default = "dev-RSG"
 }
+
+# Variable section for project state file
+variable "resource_group_name" {
+	default = ""
+}
+
+variable  "storage_account_name" {
+	default = ""
+
+}
+variable "container_name" {
+	default = ""
+}
+
+variable  "project_key_sfname"  {
+	default = ""
+}

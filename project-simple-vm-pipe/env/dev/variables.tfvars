@@ -1,1 +1,5 @@
 rsgname = "dev-RSG-RAVI211"
+resource_group_name = "dev-RSG"
+storage_account_name = "fiberdevenvstorage"
+container_name = "dev-tstate"
+project_key_sfname = "instance.tfstate"
