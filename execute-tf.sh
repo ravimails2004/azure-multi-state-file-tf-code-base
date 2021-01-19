@@ -5,11 +5,18 @@ TF_13_CMD=`which terraform-13`
 STRUCT="src/terraform"
 SOURCE_LN="modules"
 
-function SetupDirStructure() {
+function SetupDirStructurevnet() {
          ${MD} -p "${WORKSPACE}/${JOB_NAME}/${STRUCT}" 
          ${LINK} -s "${WORKSPACE}/modules"  "${WORKSPACE}/${JOB_NAME}/${STRUCT}/modules" 
 	 ${LINK} -s "${WORKSPACE}/vnetstatefiles/${ENV}/backend.tf" "${WORKSPACE}/${JOB_NAME}/backend.tf"
 }
+
+function SetupDirStructuresimple() {
+         ${MD} -p "${WORKSPACE}/${JOB_NAME}/${STRUCT}"
+         ${LINK} -s "${WORKSPACE}/modules"  "${WORKSPACE}/${JOB_NAME}/${STRUCT}/modules"
+}
+
+
 
 function Tf_Init() {
  	cd ${JOB_NAME} && ${TF_13_CMD} init
