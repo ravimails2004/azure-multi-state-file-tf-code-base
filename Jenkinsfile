@@ -22,30 +22,5 @@ pipeline {
                   }
                 }
               }
-                 stage('Initialize tf-13') {
-                 steps {
-                    echo 'initializing tf 13'
-                   // #sh './execute-tf.sh Tf_Init'
-                 }
-                 }
-                 
-                 stage('Displaying tf-13 plan') {
-                 steps {
-                    echo 'Displaying the tf-13 planning'
-                    // #sh './execute-tf.sh Tf_Plan'
-                 }
-                 }
-                stage('Approval Phase1') {
-                   steps {
-                   input ('Do you want to proceed?')
-                 }
-                 }
-                stage('Displaying tf-13 apply auto-approve') {
-                 steps {
-                    echo 'Displaying the tf-13 apply'
-                   // #sh './execute-tf.sh Tf_Apply'
-                 }
-                 }
-
 }
 }
