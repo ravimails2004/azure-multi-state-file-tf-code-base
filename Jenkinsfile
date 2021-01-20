@@ -36,7 +36,6 @@ pipeline {
                  steps {
                     echo 'Displaying the tf-13 planning'
                     sh './execute-tf.sh Tf_Plan'
-                    sh  'printenv'
                  }
                  }
                 stage('Approval Phase1') {
@@ -51,4 +50,9 @@ pipeline {
                  }
                  }
 }
+post {
+        always {
+            cleanWs()
+        }
+    }
 }
