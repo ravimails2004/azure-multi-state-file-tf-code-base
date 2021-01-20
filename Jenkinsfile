@@ -9,7 +9,7 @@ pipeline {
           preprod = credentials('ARM_ACCESS_KEY_PREPROD')
           prod = credentials('ARM_ACCESS_KEY_PROD')
           ENV_NAME = getEnvName(env.ENV)
-          ARM_ACCESS_KEY = ENV_NAME
+          ARM_ACCESS_KEY = 'ENV_NAME'
          
         }
 
