@@ -23,17 +23,20 @@ function SetupDirStructuresimple() {
 
 
 function Tf_Init() {
+	export ARM_ACCESS_KEY=ARM_ACCESS_KEY_{ENV}
  	cd ${JOB_NAME} && ${TF_13_CMD} init
 
 }
 
 
 function Tf_Plan() {
+    export ARM_ACCESS_KEY=ARM_ACCESS_KEY_{ENV}
     cd ${JOB_NAME} && ${TF_13_CMD} plan -var-file="env/${ENV}/variables.tfvars"
 
 }
 
 function Tf_Apply() {
+    export ARM_ACCESS_KEY=ARM_ACCESS_KEY_{ENV}
     cd ${JOB_NAME} && ${TF_13_CMD} apply -var-file="env/${ENV}/variables.tfvars" -auto-approve
 
 }
