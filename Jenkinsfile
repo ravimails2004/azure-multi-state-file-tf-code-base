@@ -5,6 +5,12 @@ pipeline {
           ARM_CLIENT_SECRET = credentials('ARM_CLIENT_SECRET')
           ARM_SUBSCRIPTION_ID = credentials('ARM_SUBSCRIPTION_ID')
           ARM_TENANT_ID = credentials('ARM_TENANT_ID')
+          dev = credentials('ARM_ACCESS_KEY_DEV')
+          preprod = credentials('ARM_ACCESS_KEY_PREPROD')
+          prod = credentials('ARM_ACCESS_KEY_PROD')
+          ENV_NAME = getEnvName(env.ENV)
+          ARM_ACCESS_KEY = ENV_NAME
+         
         }
 
          stages {
