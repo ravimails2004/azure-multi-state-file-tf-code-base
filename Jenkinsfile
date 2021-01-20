@@ -35,7 +35,7 @@ pipeline {
                  stage('Displaying tf-13 plan') {
                  steps {
                     echo 'Displaying the tf-13 planning'
-                    sh './execute-tf.sh Tf_Plan'
+                    sh './execute-tf.sh Tf_Plan && env'
                  }
                  }
                 stage('Approval Phase1') {
