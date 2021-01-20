@@ -4,7 +4,7 @@ variable "rsgname" {
 }
 
 variable "target_group_addition" {
-   default = "true"
+   default = ""
 
 }
 

@@ -1,2 +1,2 @@
-rsgname = "dev-RSG-RAVI211"
+rsgname = "prod-RSG-RAVI211"
 target_group_addition = true
