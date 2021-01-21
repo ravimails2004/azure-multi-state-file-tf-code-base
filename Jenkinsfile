@@ -12,7 +12,6 @@ pipeline {
                  stage('SetupDirStructure') {
                  steps {
                    script {
-                   echo "Doing env print ${ARM_ACCESS_KEY}"
                   if ( env.project_type == 'vnet' ) {
                      echo "Executing according to vnet"
                      sh 'chmod +x execute-tf.sh'
