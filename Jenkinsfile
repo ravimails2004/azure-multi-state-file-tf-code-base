@@ -8,9 +8,7 @@ pipeline {
           dev = credentials('ARM_ACCESS_KEY_DEV')
           preprod = credentials('ARM_ACCESS_KEY_PREPROD')
           prod = credentials('ARM_ACCESS_KEY_PROD')
-          withEnv(['ENV_NAME=getEnvName(env.ENV)']) {
-              ARM_ACCESS_KEY = ENV_NAME
-           }  
+              ARM_ACCESS_KEY = {ENV}
          
         }
 
@@ -18,6 +16,7 @@ pipeline {
                  stage('SetupDirStructure') {
                  steps {
                    script {
+                   echo "Doing env print ${ARM_ACCESS_KEY}"
                   if ( env.project_type == 'vnet' ) {
                      echo "Executing according to vnet"
                      sh 'chmod +x execute-tf.sh'
