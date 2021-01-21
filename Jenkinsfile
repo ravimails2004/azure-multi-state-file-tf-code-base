@@ -8,7 +8,7 @@ pipeline {
           ARM_ACCESS_KEY_dev = credentials('ARM_ACCESS_KEY_DEV')
           ARM_ACCESS_KEY_PREPROD = credentials('ARM_ACCESS_KEY_PREPROD')
           ARM_ACCESS_KEY_PROD = credentials('ARM_ACCESS_KEY_PROD')
-          ARM_ACCESS_KEY = ARM_ACCESS_KEY_"env.ENV"        
+          ARM_ACCESS_KEY = "ARM_ACCESS_KEY_${env.ENV}"
         }
 
          stages {
