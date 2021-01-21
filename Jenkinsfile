@@ -5,7 +5,7 @@ pipeline {
           ARM_CLIENT_SECRET = credentials('ARM_CLIENT_SECRET')
           ARM_SUBSCRIPTION_ID = credentials('ARM_SUBSCRIPTION_ID')
           ARM_TENANT_ID = credentials('ARM_TENANT_ID')
-          ARM_ACCESS_KEY = credentials("ARM_ACCESS_KEY_"${env.ENV}"")
+          ARM_ACCESS_KEY = credentials("ARM_ACCESS_KEY_${env.ENV}")
         }
 
          stages {
