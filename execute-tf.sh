@@ -21,7 +21,7 @@ function SetupDirStructuresimple() {
 
 
 function Tf_Init() {
- 	cd ${JOB_NAME} && ${TF_13_CMD} init -reconfigure
+ 	cd ${JOB_NAME} && ${TF_13_CMD} init 
 
 }
 
