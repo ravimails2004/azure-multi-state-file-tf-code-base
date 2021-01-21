@@ -24,7 +24,7 @@ function SetupDirStructuresimple() {
 
 function Tf_Init() {
 	export ARM_ACCESS_KEY=ARM_ACCESS_KEY_{ENV}
- 	cd ${JOB_NAME} && ${TF_13_CMD} init
+ 	cd ${JOB_NAME} && ${TF_13_CMD} init -reconfigure
 
 }
 
