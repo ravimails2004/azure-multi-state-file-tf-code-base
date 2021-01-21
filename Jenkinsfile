@@ -8,7 +8,7 @@ pipeline {
           dev = credentials('ARM_ACCESS_KEY_DEV')
           preprod = credentials('ARM_ACCESS_KEY_PREPROD')
           prod = credentials('ARM_ACCESS_KEY_PROD')
-              ARM_ACCESS_KEY = {ENV}
+              ARM_ACCESS_KEY = ${ENV}
          
         }
 
