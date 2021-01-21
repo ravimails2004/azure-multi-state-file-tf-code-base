@@ -73,7 +73,7 @@ variable "nsg_dport" {
 }
 
 variable "vnet_name" {
-  default = "dev-vnet"
+  default = ""
 }
 
 
@@ -82,7 +82,7 @@ variable "subnet_name" {
 }
 
 variable "subnet_resource_group" {
-  default = "dev-RSG"
+  default = ""
 }
 
 # Variable section for project state file
