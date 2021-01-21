@@ -5,11 +5,9 @@ pipeline {
           ARM_CLIENT_SECRET = credentials('ARM_CLIENT_SECRET')
           ARM_SUBSCRIPTION_ID = credentials('ARM_SUBSCRIPTION_ID')
           ARM_TENANT_ID = credentials('ARM_TENANT_ID')
-          dev2 = credentials('ARM_ACCESS_KEY_DEV')
-          dev = "aEF3dEZYSEgzeU5HSytWMGhKQXpmSHVnVzZ5TGVmaCtXdW1icHFWM2R5NFdWUzRVcWE1eDhSYS8xdVlnbXNueVlnRXNhdmlqVmhVODlEQmxCWVZrV3c9PQ=="
-          preprod = credentials('ARM_ACCESS_KEY_PREPROD')
-          prod = credentials('ARM_ACCESS_KEY_PROD')
-              ARM_ACCESS_KEY = "env.ENV"
+          ARM_ACCESS_KEY_DEV = credentials('ARM_ACCESS_KEY_DEV')
+          ARM_ACCESS_KEY_PREPROD = credentials('ARM_ACCESS_KEY_PREPROD')
+          ARM_ACCESS_KEY_PROD = credentials('ARM_ACCESS_KEY_PROD')
          
         }
 
