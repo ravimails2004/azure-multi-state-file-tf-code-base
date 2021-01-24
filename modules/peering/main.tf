@@ -9,7 +9,7 @@ resource "azurerm_virtual_network_peering" "peering_src" {
 
 resource "azurerm_virtual_network_peering" "peering_dest" {
   count  = var.create_peering_connection && length(var.vnet_dest_names) > 0 ? length(var.vnet_dest_names) : 0
-  name   = "format("from-%s", var.vnet-name_src)
+  name   = format("from-%s", var.vnet-name_src)
 
   #resource_group_name          = var.vnet_dest_resource_group_names #List
   resource_group_name          =  element(var.vnet_dest_resource_group_names.*.id, count.index)
