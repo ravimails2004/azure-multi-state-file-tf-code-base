@@ -23,3 +23,20 @@ module "vnet" {
   private_subnet_cidr = var.private_subnet_cidr
 
 }
+
+module "peering" {
+  source    = "./src/terraform/modules/peering"
+  depends_on = [module.vnet]
+  create_peering_connection = true
+  vnet_dest_ids = var.vnet_dest_ids
+  rsgname_src = module.resource-group.rsgname
+  vnet-name_src = var.vnet-name
+  vnet_dest_names = var.vnet_dest_names
+  vnet_dest_resource_group_names = var.vnet_dest_resource_group_names
+  vnet_src_id = module.vnet.vnet-id
+
+}
+
+
+
+

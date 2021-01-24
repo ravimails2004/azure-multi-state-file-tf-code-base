@@ -6,3 +6,6 @@ address_space = ["192.168.0.0/16"]
 private_subnet_cidr = ["192.168.32.0/19", "192.168.64.0/19","192.168.96.0/19"]
 public_subnet_cidr = ["192.168.0.0/19"]
 target_group_addition = "false"
+vnet_dest_resource_group_names = ["rg-tech-vnet", "rg-vnet-dsl" ]
+vnet_dest_ids = ["private-dns-tech", "dsl-vnet"]
+vnet_dest_names = ["private-dns-tech", "dsl-vnet"]
