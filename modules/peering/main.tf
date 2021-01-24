@@ -1,6 +1,6 @@
 resource "azurerm_virtual_network_peering" "peering_src" {
   count  = var.create_peering_connection && length(var.vnet_dest_ids) > 0 ? length(var.vnet_dest_ids) : 0
-  name =  peering-to-${var.vnet_dest_name}
+  name =  to-${var.vnet_dest_name}
   resource_group_name          = var.rsgname_src   #String
   virtual_network_name         = var.vnet-name_src  #Vnet source name String
   #remote_virtual_network_id    = var.vnet_dest_ids #List
@@ -9,7 +9,7 @@ resource "azurerm_virtual_network_peering" "peering_src" {
 
 resource "azurerm_virtual_network_peering" "peering_dest" {
   count  = var.create_peering_connection && length(var.vnet_dest_names) > 0 ? length(var.vnet_dest_names) : 0
-  name   = peering-to-${var.vnet_src_name}
+  name   = from-${var.vnet_src_name}
   #resource_group_name          = var.vnet_dest_resource_group_names #List
   resource_group_name          =  element(var.vnet_dest_resource_group_names.*.id, count.index)
   #virtual_network_name         = var.vnet_dest_names # List
