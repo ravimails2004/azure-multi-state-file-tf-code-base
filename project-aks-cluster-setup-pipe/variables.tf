@@ -30,9 +30,6 @@ variable "system_agents_size" {
 variable "private_subnet_id" {
 
 }
-variable "log_analytics_workspace_id" {
-
-}
 variable "worker_agents_size" {
 
 }
