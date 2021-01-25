@@ -1,10 +1,20 @@
+module "resource-group" {
+  source = "./src/terraform/modules/resource-group"
+  target_group_addition = var.target_group_addition
+  rsgname  =  var.resource_group_name
+  location = var.location
+  appname  = var.appname
+  env      = var.env
+  devowner = var.devowner
+}
+
+
 module "loganalytics-ws" {
  source = "./src/terraform/modules/loganalytics-ws"
+  depends_on = [module.resource-group]
   env  = var.env
   location = var.location
-  resource_group_name = var.resource_group_name
-  sku                 = var.log_analytics_workspace_sku
-  retention_in_days   = var.log_retention_in_days
+  resource_group_name = module.resource-group.rsgname
 }
 
 module "aks" {
@@ -19,7 +29,10 @@ module "aks" {
   system_agents_max_count = var.system_agents_max_count
   system_agents_count = var.system_agents_count
   system_agents_size = var.system_agents_size
-  private_subnet_id = var.private_subnet_id
+  subnet_name1 = var.subnet_name1
+  subnet_name2 = var.subnet_name2
+  vnet_name         = var.vnet_name
+  subnet_resource_group = var.subnet_resource_group
   log_analytics_workspace_id = module.loganalytics-ws.log_analytics_workspace_id
   worker_agents_size = var.worker_agents_size
   worker_agents_min_count =  var.worker_agents_min_count

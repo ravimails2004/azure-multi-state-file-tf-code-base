@@ -105,3 +105,8 @@ variable "logs_ws_location" {
 variable "kubernetes_version" {
 
 }
+
+variable "subnet_resource_group" {}
+variable "vnet_name" {}
+variable "subnet_name1" {}
+variable "subnet_name2" {}

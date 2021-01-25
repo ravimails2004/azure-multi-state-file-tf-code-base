@@ -2,6 +2,25 @@ data "azurerm_resource_group" "main" {
   name = var.resource_group_name
 }
 
+#Get the subnetid details and assign it to vnet_subnet_id
+data "azurerm_subnet" "private-subnet-1" {
+  name                 = var.subnet_name1
+  virtual_network_name = var.vnet_name
+  resource_group_name  = var.subnet_resource_group
+}
+
+data "azurerm_subnet" "private-subnet-2" {
+  name                 = var.subnet_name2
+  virtual_network_name = var.vnet_name
+  resource_group_name  = var.subnet_resource_group
+}
+
+
+
+
+
+
+
 module "ssh-key" {
   source         = "./modules/ssh-key"
   public_ssh_key = var.public_ssh_key == "" ? "" : var.public_ssh_key
@@ -55,6 +74,8 @@ resource "azurerm_kubernetes_cluster" "aks-cluster" {
     client_secret = azuread_service_principal_password.aks-sp-pass.value
   }
 
+
+
   default_node_pool {
     name            = "systemnode"
     enable_auto_scaling = true
@@ -64,7 +85,7 @@ resource "azurerm_kubernetes_cluster" "aks-cluster" {
     node_count      = var.system_agents_count
     vm_size         = var.system_agents_size
     os_disk_size_gb = 100
-    vnet_subnet_id  = var.private_subnet_id
+    vnet_subnet_id  = data.azurerm_subnet.private-subnet-1.id
     node_labels = {
       nodeType = "systemNode"
     }
@@ -85,7 +106,7 @@ resource "azurerm_kubernetes_cluster" "aks-cluster" {
     }
     oms_agent {
       enabled                    = true
-      log_analytics_workspace_id = var._idlog_analytics_workspace
+      log_analytics_workspace_id = var.log_analytics_workspace_id
       }
   }
 
@@ -110,7 +131,7 @@ resource "azurerm_kubernetes_cluster_node_pool" "aks-cluster-np" {
   min_count             = var.worker_agents_min_count
   max_count             = var.worker_agents_max_count
   node_count            = var.worker_agents_count
-  vnet_subnet_id        = var.private_subnet_id
+  vnet_subnet_id        = data.azurerm_subnet.private-subnet-2.id
   os_disk_size_gb = 100
   node_labels = {
     nodeType = "workerNode"
