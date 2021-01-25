@@ -17,7 +17,7 @@ data "azurerm_log_analytics_workspace" "wks" {
 }
 
 output "log_analytics_workspace_id" {
-  value = data.azurerm_log_analytics_workspace.wks.workspace_id
+  value = data.azurerm_log_analytics_workspace.wks.id
 }
 
 output "log_analytics_workspace_name" {
