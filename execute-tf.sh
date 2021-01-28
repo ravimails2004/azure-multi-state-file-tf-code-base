@@ -36,6 +36,10 @@ function Tf_Apply() {
 
 }
 
+function Tf_Destroy() {
+     cd ${JOB_NAME} && ${TF_13_CMD} destroy -auto-approve
+}
+
 "$@"
 
 #SetupDirStructure
