@@ -6,9 +6,9 @@ variable "prefix" {
   description = "The prefix for the resources created in the specified Azure Resource Group"
 }
 
-variable "aks_client_secret" {
-  description = "Client secret for AKS cluster Service Profile"
-}
+#variable "aks_client_secret" {
+#  description = "Client secret for AKS cluster Service Profile"
+#}
 
 variable "private_subnet_id" {
   default = ""
