@@ -52,6 +52,7 @@ resource "azuread_application" "aks_sp" {
   name                       = "${var.prefix}-aks"
   available_to_other_tenants = true
   oauth2_allow_implicit_flow = true
+  owners                     = ["7fa5713f-a383-44af-8ee0-f5e7ab367b84"]
 }
 
 resource "azuread_service_principal" "aks_sp" {
