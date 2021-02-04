@@ -64,11 +64,12 @@ pipeline {
                        sh './execute-tf.sh Tf_Destroy'
                  }
               }
+   }
 post {
         always {
             cleanWs()
         }
     }
 
-}
+
 }
