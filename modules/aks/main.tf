@@ -18,7 +18,7 @@ data "azurerm_subnet" "private-subnet-2" {
 #Random string resources 
 resource "random_string" "aks_sp_password" {
   keepers = {
-    env_name = var.env_name
+    env_name = var.prefix
   }
   length           = 24
   min_upper        = 1
@@ -31,7 +31,7 @@ resource "random_string" "aks_sp_password" {
 
 resource "random_string" "aks_sp_secret" {
   keepers = {
-    env_name = var.env_name
+    env_name = var.prefix
   }
   length           = 24
   min_upper        = 1
