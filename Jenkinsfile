@@ -53,7 +53,6 @@ pipeline {
                 
 
 
-}
               stage('Approval phase2 for destroy') {
                  steps {
                     input ('Do you want to proceed with destroy?')
@@ -71,4 +70,5 @@ post {
         }
     }
 
+}
 }
