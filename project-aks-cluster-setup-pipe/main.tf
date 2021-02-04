@@ -22,7 +22,7 @@ module "aks" {
   depends_on = [module.loganalytics-ws]
   resource_group_name = var.resource_group_name
   prefix  =  var.env
-  aks_client_secret = var.aks_client_secret
+  #aks_client_secret = var.aks_client_secret
   kubernetes_version = var.kubernetes_version
   admin_username = var.admin_username
   system_agents_min_count = var.system_agents_min_count

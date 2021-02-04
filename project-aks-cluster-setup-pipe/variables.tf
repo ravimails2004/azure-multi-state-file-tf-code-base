@@ -5,9 +5,9 @@ variable  "env" {
   default = ""
 }
 
-variable  "aks_client_secret" {
-  default = ""
-}
+#variable  "aks_client_secret" {
+#  default = ""
+#}
 
 variable "kubernetes_version" {
   default = ""

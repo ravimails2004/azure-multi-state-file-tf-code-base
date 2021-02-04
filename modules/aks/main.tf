@@ -26,21 +26,51 @@ module "ssh-key" {
   public_ssh_key = var.public_ssh_key == "" ? "" : var.public_ssh_key
 }
 
-resource "azuread_application" "aks" {
+resource "azuread_application" "aks_sp" {
   name                       = "${var.prefix}-aks"
   available_to_other_tenants = true
   oauth2_allow_implicit_flow = true
 }
 
-resource "azuread_service_principal" "aks-sp" {
-  application_id = azuread_application.aks.application_id
+resource "azuread_service_principal" "aks_sp" {
+  application_id = azuread_application.aks_sp.application_id
 }
 
-resource "azuread_service_principal_password" "aks-sp-pass" {
-  service_principal_id = azuread_service_principal.aks-sp.id
-  value                = var.aks_client_secret
+#After testing we found service principal was not able to set the password, we are generating it randomly, changes done on 4th-feb.
+
+
+resource "azuread_service_principal_password" "aks_sp" {
+  service_principal_id = azuread_service_principal.aks_sp.id
+  #value                = var.aks_client_secret
+  value                = random_string.aks_sp_password.result
   end_date             = "2999-01-01T01:02:03Z"
 }
+
+#Same we are doing with application password, changes done on 4th-feb.
+
+resource "azuread_application_password" "aks_sp" {
+  application_object_id = azuread_application.aks_sp.id
+  value                 = random_string.aks_sp_secret.result
+  end_date     = "2999-01-01T01:02:03Z"
+}
+
+#Adding container registry, integration
+
+data "azurerm_container_registry" "myregistry" {
+  name                = var.container_registry_name
+  resource_group_name = var.container_registry_resource_group_name
+}
+
+
+#Adding pull for ACR
+
+resource "azurerm_role_assignment" "aks_sp_container_registry" {
+  scope                = data.azurerm_container_registry.myregistry.id
+  role_definition_name = "AcrPull"
+  principal_id         = azuread_service_principal.aks_sp.object_id
+}
+
+
 
 resource "azurerm_kubernetes_cluster" "aks-cluster" {
   name                = "${var.prefix}-aks"
@@ -53,9 +83,6 @@ resource "azurerm_kubernetes_cluster" "aks-cluster" {
   network_profile {
     network_plugin = "azure"
     load_balancer_sku = "standard"
-    #load_balancer_profile {
-    #  managed_outbound_ip_count=5
-    #}
   }
   role_based_access_control {
     enabled = true
@@ -70,8 +97,8 @@ resource "azurerm_kubernetes_cluster" "aks-cluster" {
   }
 
   service_principal {
-    client_id     = azuread_application.aks.application_id
-    client_secret = azuread_service_principal_password.aks-sp-pass.value
+    client_id     = azuread_application.aks_sp.application_id
+    client_secret = random_string.aks_sp_password.result
   }
 
 
