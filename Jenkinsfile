@@ -54,6 +54,17 @@ pipeline {
 
 
 }
+              stage('Approval phase2 for destroy') {
+                 steps {
+                    input ('Do you want to proceed with destroy?')
+             }
+             }
+             stage('Displaying tf-13 destroy auto-approved') {
+                  steps {
+                       echo 'Displaying the tf-13 destroy'
+                       sh './execute-tf.sh Tf_Destroy'
+                 }
+              }
 post {
         always {
             cleanWs()
