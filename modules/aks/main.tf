@@ -15,10 +15,32 @@ data "azurerm_subnet" "private-subnet-2" {
   resource_group_name  = var.subnet_resource_group
 }
 
+#Random string resources 
+resource "random_string" "aks_sp_password" {
+  keepers = {
+    env_name = var.env_name
+  }
+  length           = 24
+  min_upper        = 1
+  min_lower        = 1
+  min_numeric      = 1
+  special          = true
+  min_special      = 1
+  override_special = "!@-_=+."
+}
 
-
-
-
+resource "random_string" "aks_sp_secret" {
+  keepers = {
+    env_name = var.env_name
+  }
+  length           = 24
+  min_upper        = 1
+  min_lower        = 1
+  min_numeric      = 1
+  special          = true
+  min_special      = 1
+  override_special = "!@-_=+."
+}
 
 
 module "ssh-key" {
