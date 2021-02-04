@@ -90,7 +90,8 @@ data "azurerm_container_registry" "myregistry" {
 resource "azurerm_role_assignment" "aks_sp_container_registry" {
   scope                = data.azurerm_container_registry.myregistry.id
   role_definition_name = "AcrPull"
-  principal_id         = azuread_service_principal.aks_sp.object_id
+  principal_id         = azuread_service_principal.aks_sp.id
+  skip_service_principal_aad_check = true
 }
 
 
