@@ -57,12 +57,12 @@ variable "worker_agents_min_count" {
 
 variable "worker_agents_max_count" {
   description = "The number of Agents that should exist in the System Agent Pool"
-  default     = 50
+  default     = 5
 }
 
 variable "worker_agents_count" {
   description = "The number of Agents that should exist in the Agent Pool"
-  default     = 5
+  default     = 2
 }
 
 variable "public_ssh_key" {
