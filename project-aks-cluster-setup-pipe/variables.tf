@@ -56,7 +56,8 @@ variable "location" {
 variable "target_group_addition" {}
 variable "appname" {}
 variable "devowner" {}
-
+variable "container_registry_name" {}
+variable "container_registry_resource_group_name" {}
 variable "subnet_name1" {}
 variable "subnet_name2" {}
 variable "vnet_name" {}

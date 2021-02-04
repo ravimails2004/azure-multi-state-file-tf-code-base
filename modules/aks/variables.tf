@@ -14,13 +14,11 @@ variable "private_subnet_id" {
   default = ""
   description = "Private subnet id for the aks cluster"
 }
-#variable "client_id" {
-#  description = "The Client ID (appId) for the Service Principal used for the AKS deployment"
-#}
+variable "container_registry_name" {
+}
 
-#variable "client_secret" {
-#  description = "The Client Secret (password) for the Service Principal used for the AKS deployment"
-#}
+variable "container_registry_resource_group_name" {
+}
 
 variable "admin_username" {
   default     = "azureuser"
