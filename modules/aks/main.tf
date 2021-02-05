@@ -209,3 +209,47 @@ resource "azurerm_log_analytics_solution" "aks-log" {
     product   = "OMSGallery/ContainerInsights"
   }
 }
+
+data "azurerm_resource_group" "aks-rsg" {
+  name = var.resource_group_name
+}
+
+data "azurerm_resource_group" "subnet-rsg" {
+  name = var.subnet_resource_group
+}
+
+
+resource "azurerm_role_assignment" "subnet-RSG" {
+  scope                = data.azurerm_resource_group.aks-rsg.id
+  role_definition_name = "Owner"
+  principal_id         = azuread_service_principal.aks_sp.id
+  skip_service_principal_aad_check = true
+
+}
+
+resource "azurerm_role_assignment" "aks-rsg" {
+  scope                = data.azurerm_resource_group.subnet-rsg.id
+  role_definition_name = "Owner"
+  principal_id         = azuread_service_principal.aks_sp.id
+  skip_service_principal_aad_check = true
+
+}
+
+
+
+
+resource "azurerm_role_assignment" "private-subnet1" {
+  scope                = data.azurerm_subnet.private-subnet-1.id
+  role_definition_name = "Owner"
+  principal_id         = azuread_service_principal.aks_sp.id
+  skip_service_principal_aad_check = true
+
+}
+
+resource "azurerm_role_assignment" "private-subnet2" {
+  scope                = data.azurerm_subnet.private-subnet-2.id
+  role_definition_name = "Owner"
+  principal_id         = azuread_service_principal.aks_sp.id
+  skip_service_principal_aad_check = true
+
+}
