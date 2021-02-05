@@ -36,6 +36,10 @@ function Tf_Apply() {
 
 }
 
+function Tf_Destroy() {
+     cd ${JOB_NAME} && ${TF_13_CMD} destroy -var-file="env/${ENV}/variables.tfvars" -auto-approve
+}
+
 "$@"
 
 #SetupDirStructure
