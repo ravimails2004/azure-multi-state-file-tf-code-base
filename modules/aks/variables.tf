@@ -108,3 +108,4 @@ variable "subnet_resource_group" {}
 variable "vnet_name" {}
 variable "subnet_name1" {}
 variable "subnet_name2" {}
+variable "cluster_name" {}
