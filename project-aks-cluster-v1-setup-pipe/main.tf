@@ -13,6 +13,7 @@ module "loganalytics-ws" {
  source = "./src/terraform/modules/loganalytics-ws"
   depends_on = [module.resource-group]
   env  = var.env
+  cluster_name = var.cluster_name
   location = var.location
   resource_group_name = module.resource-group.rsgname
 }
