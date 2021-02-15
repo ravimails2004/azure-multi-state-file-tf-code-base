@@ -49,7 +49,7 @@ module "ssh-key" {
 }
 
 resource "azuread_application" "aks_sp" {
-  name                       = "${var.prefix}-fiberbeta-aks"
+  name                       = "${var.prefix}-${cluster_name}-aks"
   available_to_other_tenants = true
   oauth2_allow_implicit_flow = true
   owners                     = ["7fa5713f-a383-44af-8ee0-f5e7ab367b84"]
@@ -97,10 +97,10 @@ resource "azurerm_role_assignment" "aks_sp_container_registry" {
 
 
 resource "azurerm_kubernetes_cluster" "aks-cluster" {
-  name                = "${var.prefix}-aks"
+  name                = "${var.prefix}-${cluster_name}-aks"
   location            = data.azurerm_resource_group.main.location
   resource_group_name = data.azurerm_resource_group.main.name
-  node_resource_group = "${var.prefix}-nodegroup"
+  node_resource_group = "${var.prefix}-${cluster_name}-nodegroup"
   dns_prefix          = var.prefix
   kubernetes_version  = var.kubernetes_version
 
@@ -141,7 +141,7 @@ resource "azurerm_kubernetes_cluster" "aks-cluster" {
       nodeType = "systemNode"
     }
     tags =  {
-      name  = "${var.prefix}-system-node",
+      name  = "${var.prefix}-${cluster_name}-system-node",
       owner = "DevOps"
     }
   }
@@ -162,7 +162,7 @@ resource "azurerm_kubernetes_cluster" "aks-cluster" {
   }
 
   tags = {
-    Name    = "${var.prefix}-aks"
+    Name    = "${var.prefix}-${cluster_name}-aks"
     Purpose = "AKS cluster for ${var.resource_group_name} tenant"
     Owner   = "DevOps"
   }
@@ -188,7 +188,7 @@ resource "azurerm_kubernetes_cluster_node_pool" "aks-cluster-np" {
     nodeType = "workerNode"
   }
   tags =  {
-      Name  = "${var.prefix}-worker-node",
+      Name  = "${var.prefix}-${cluster_name}-worker-node",
       owner = "DevOps"
     }
   lifecycle {
