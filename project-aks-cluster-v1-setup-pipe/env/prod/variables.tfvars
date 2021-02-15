@@ -1,5 +1,5 @@
 target_group_addition = true
-appname = "embibe-com-v2"
+appname = "embibe-com-v1"
 devowner = "Ravi Sharma"
 location="Central India"
 resource_group_name="aks-prod-rsg"
@@ -21,4 +21,4 @@ worker_agents_min_count = "5"
 worker_agents_max_count = "40"
 worker_agents_count = "10"
 logs_ws_location = "Central India"
-cluster_name = "fiberbeta"
+cluster_name = "embibe-v1"
