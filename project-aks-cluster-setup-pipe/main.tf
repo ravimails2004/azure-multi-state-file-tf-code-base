@@ -15,6 +15,7 @@ module "loganalytics-ws" {
   env  = var.env
   location = var.location
   resource_group_name = module.resource-group.rsgname
+  cluster_name = var.cluster_name
 }
 
 module "aks" {
