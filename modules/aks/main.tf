@@ -107,7 +107,7 @@ resource "azurerm_kubernetes_cluster" "aks-cluster" {
   network_profile {
     network_plugin = "azure"
     load_balancer_sku = "standard"
-    #network_policy    = "azure"
+    network_policy    = "azure"
   }
   role_based_access_control {
     enabled = true
@@ -171,7 +171,7 @@ resource "azurerm_kubernetes_cluster" "aks-cluster" {
   #agent_pool_profile {}
   lifecycle {
     ignore_changes = [tags,]
-    create_before_destroy = true
+    create_before_destroy = false
   }
 }
 
@@ -194,7 +194,6 @@ resource "azurerm_kubernetes_cluster_node_pool" "aks-cluster-np" {
     }
   lifecycle {
     ignore_changes = [tags,]
-   create_before_destroy = true
   }
 }
 
