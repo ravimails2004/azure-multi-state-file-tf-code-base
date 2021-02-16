@@ -171,7 +171,7 @@ resource "azurerm_kubernetes_cluster" "aks-cluster" {
   #agent_pool_profile {}
   lifecycle {
     ignore_changes = [tags,]
-    create_before_destroy = false
+    create_before_destroy = true
   }
 }
 
@@ -193,8 +193,8 @@ resource "azurerm_kubernetes_cluster_node_pool" "aks-cluster-np" {
       owner = "DevOps"
     }
   lifecycle {
-    ignore_changes = [tags,
-   ]
+    ignore_changes = [tags,]
+   create_before_destroy = true
   }
 }
 
