@@ -51,7 +51,7 @@ Example
 How to use this project
 -------------------------
 ```python
-1) git clone https://Ravisri@bitbucket.org/microservicesembibe/terraform-code-base.git
+1) git clone https://github.com/ravimails2004/azure-multi-state-file-tf-code-base.git
 
 2) cd terraform-code-base 
 
