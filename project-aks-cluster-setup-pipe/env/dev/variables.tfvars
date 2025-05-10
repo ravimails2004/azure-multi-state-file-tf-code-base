@@ -1,10 +1,10 @@
 target_group_addition = true
-appname = "embibe-com-v1"
+appname = "ravicomp-com-v1"
 devowner = "Ravi Sharma"
 location="Central India"
 resource_group_name="aks-rsg"
 env = "dev"
-container_registry_name="embibeaksimage"
+container_registry_name="ravicompaksimage"
 container_registry_resource_group_name="rg-tech-vnet"
 kubernetes_version = "1.18.14"
 admin_username = "azureuser"

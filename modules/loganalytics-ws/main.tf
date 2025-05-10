@@ -1,18 +1,18 @@
 resource "azurerm_log_analytics_workspace" "wks" {
-  name                = "org-${var.env}-${var.cluster_name}-embibe-CentralIndia"
+  name                = "org-${var.env}-${var.cluster_name}-ravicomp-CentralIndia"
   location            = var.location
   resource_group_name = var.resource_group_name
   sku                 = var.log_analytics_workspace_sku
   retention_in_days   = var.log_retention_in_days
   tags = {
-    Name    = "org-${var.env}-${var.cluster_name}-embibe-CentralIndia"
+    Name    = "org-${var.env}-${var.cluster_name}-ravicomp-CentralIndia"
     Purpose = "For collecting logs and running queries on them"
     Owner   = "DevOps"
   }
 }
 
 data "azurerm_log_analytics_workspace" "wks" {
-  name                = "org-${var.env}-${var.cluster_name}-embibe-CentralIndia"
+  name                = "org-${var.env}-${var.cluster_name}-ravicomp-CentralIndia"
   resource_group_name = var.resource_group_name
 }
 
